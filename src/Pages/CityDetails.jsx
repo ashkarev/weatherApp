@@ -37,12 +37,12 @@ const CityDetails = () => {
 
   return (
     <div className="min-h-screen bg-sky-200 p-6">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto ">
         <h2 className="text-5xl font-semibold mb-4 text-blue-500">
           {name} – Hourly Forecast
         </h2>
 
-        <div className="bg-blue-500 text-white p-4 rounded-md mb-6">
+        <div className="bg-blue-500 text-white p-4 rounded-md mb-6 hover:scale-105 duration-700">
           {chartData.map((item, i) => (
             <div
               key={i}

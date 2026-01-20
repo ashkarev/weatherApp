@@ -77,7 +77,7 @@ const Dash = () => {
         <div className="flex justify-between items-center mb-6">
           <button
             onClick={() => dispatch(toggleUnit())}
-            className="border-0 px-4 py-2 rounded bg-violet-500 text-white hover:bg-violet-950"
+            className="border-0 px-4 py-2 rounded bg-violet-500 text-white shadow-2xl hover:bg-violet-950"
           >
             {unit === "metric" ? "Show °F" : "Show °C"}
           </button>
@@ -102,7 +102,7 @@ const Dash = () => {
         {loading && <p className="text-center">Loading...</p>}
 
         {current && (
-          <div className="bg-white text-black p-6 rounded-md text-center mb-6">
+          <div className="bg-white shadow-2xl hover:scale-105 duration-700 text-black p-6 rounded-md text-center mb-6">
             <h2 className="text-lg font-medium mb-2">
               {currentCity}
             </h2>
@@ -129,23 +129,23 @@ const Dash = () => {
 
         
         {favorites.length > 0 && (
-          <div className="bg-white p-4 rounded-md">
+          <div className="bg-white p-4 rounded-md shadow-2xl hover:scale-105 duration-700">
             <h3 className="font-medium mb-3 text-center">
               Favorite Cities
             </h3>
             <div className="flex gap-2 flex-wrap justify-center">
-              {favorites.map((f) => (
-                <button
-                  key={f}
-                  onClick={() => {
-                    setCurrentCity(f);
-                    navigate(`/city/${f}`);
-                  }}
-                  className="border px-3 py-1 rounded"
-                >
-                  {f}
-                </button>
-              ))}
+             {favorites
+  .filter((f) => f && f.trim() !== "")
+  .map((f) => (
+    <button
+      key={f}
+      onClick={() => navigate(`/city/${f}`)}
+      className="border px-3 py-1 rounded"
+    >
+      {f}
+    </button>
+  ))}
+
             </div>
           </div>
         )}
